@@ -26,6 +26,7 @@ class _NewPedidoScreenState extends State<NewPedidoScreen> {
   final _nomeController = TextEditingController();
   final _idadeController = TextEditingController();
   final _valorController = TextEditingController();
+  final _valorController = TextEditingController();
 
   File? _image;
   String _status = 'Pedido em andamento';
