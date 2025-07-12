@@ -25,6 +25,7 @@ class _NewPedidoScreenState extends State<NewPedidoScreen> {
   final _kgController = TextEditingController();
   final _nomeController = TextEditingController();
   final _idadeController = TextEditingController();
+  final _valorController = TextEditingController();
 
   File? _image;
   String _status = 'Pedido em andamento';
@@ -41,6 +42,7 @@ class _NewPedidoScreenState extends State<NewPedidoScreen> {
       _nomeController.text = p.nome;
       _idadeController.text = p.idade;
       _status = p.status;
+      _valorController.text = p.valor;
     }
   }
 
@@ -83,8 +85,10 @@ class _NewPedidoScreenState extends State<NewPedidoScreen> {
       kg: _kgController.text,
       nome: _nomeController.text,
       idade: _idadeController.text,
+      valor: _valorController.text,
       status: _status,
       imageUrl: imageUrl,
+      
     );
 
     await FirebaseFirestore.instance
@@ -114,6 +118,7 @@ class _NewPedidoScreenState extends State<NewPedidoScreen> {
                 TextFormField(controller: _kgController, decoration: InputDecoration(labelText: 'Kg')),
                 TextFormField(controller: _nomeController, decoration: InputDecoration(labelText: 'Nome')),
                 TextFormField(controller: _idadeController, decoration: InputDecoration(labelText: 'Idade')),
+                TextFormField(controller: _valorController, decoration: InputDecoration(labelText: 'Valor (R\$)'),keyboardType: TextInputType.number,),
                 DropdownButton<String>(
                   value: _status,
                   items: ['Pedido em andamento', 'Pedido pronto']
