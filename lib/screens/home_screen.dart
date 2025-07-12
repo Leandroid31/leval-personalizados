@@ -6,8 +6,11 @@ import '../models/pedido_model.dart';
 import '../widgets/pedido_card.dart';
 
 class HomeScreen extends StatelessWidget {
+   String filtroStatus = 'Todos';
+  double? valorMin;
+  double? valorMax;
   final auth = FirebaseAuth.instance;
-
+  
   void logout(BuildContext context) async {
     await auth.signOut();
     Navigator.of(context).popUntil((route) => route.isFirst);
