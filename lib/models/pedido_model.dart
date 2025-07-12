@@ -1,13 +1,14 @@
 class Pedido {
-  String? id;
-  String data;
-  String topo;
-  String bolo;
-  String kg;
-  String nome;
-  String idade;
-  String? imageUrl;
-  String status;
+  final String id;
+  final String data;
+  final String topo;
+  final String bolo;
+  final String kg;
+  final String nome;
+  final String idade;
+  final String status;
+  final String? imageUrl;
+  final String valor;
 
   Pedido({
     this.id,
@@ -19,6 +20,7 @@ class Pedido {
     required this.idade,
     required this.status,
     this.imageUrl,
+    required this.valor,
   });
 
   Map<String, dynamic> toMap() {
@@ -31,6 +33,7 @@ class Pedido {
       'idade': idade,
       'status': status,
       'imageUrl': imageUrl,
+      'valor': valor,
     };
   }
 
@@ -45,6 +48,7 @@ class Pedido {
       idade: map['idade'],
       status: map['status'],
       imageUrl: map['imageUrl'],
+      valor: map['valor'] ?? '0',
     );
   }
 }
