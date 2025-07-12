@@ -8,10 +8,10 @@ class Pedido {
   final String idade;
   final String status;
   final String? imageUrl;
-  final String valor;
+  final String valor; // Novo campo
 
   Pedido({
-    this.id,
+    required this.id,
     required this.data,
     required this.topo,
     required this.bolo,
@@ -37,18 +37,19 @@ class Pedido {
     };
   }
 
-  static Pedido fromMap(String id, Map<String, dynamic> map) {
+  factory Pedido.fromMap(String id, Map<String, dynamic> map) {
     return Pedido(
       id: id,
-      data: map['data'],
-      topo: map['topo'],
-      bolo: map['bolo'],
-      kg: map['kg'],
-      nome: map['nome'],
-      idade: map['idade'],
-      status: map['status'],
+      data: map['data'] ?? '',
+      topo: map['topo'] ?? '',
+      bolo: map['bolo'] ?? '',
+      kg: map['kg'] ?? '',
+      nome: map['nome'] ?? '',
+      idade: map['idade'] ?? '',
+      status: map['status'] ?? '',
       imageUrl: map['imageUrl'],
       valor: map['valor'] ?? '0',
     );
   }
+}
 }
